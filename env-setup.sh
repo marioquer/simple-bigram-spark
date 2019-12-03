@@ -1,5 +1,7 @@
 # install jdk
-sudo apt-get install default-jdk -y
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install openjdk-8-jdk -y
 
 # install scala
 wget www.scala-lang.org/files/archive/scala-2.13.0.deb
