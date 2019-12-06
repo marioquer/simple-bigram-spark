@@ -2,12 +2,13 @@ import pyspark
 from pyspark import SparkContext
 from pyspark import SparkConf
 from string import punctuation
+import sys
 
 if __name__ == "__main__":
     conf = SparkConf().setAppName("wordcount").setMaster("local[*]")
     sc = SparkContext.getOrCreate(conf)
 
-    input_RDD = sc.textFile("files/const.txt")
+    input_RDD = sc.textFile(sys.argv[1])
     # delete punctuation, special characters
     words = input_RDD.flatMap(lambda line: line.split(" ")) \
         .map(lambda word: word.strip(punctuation).lower()) \
